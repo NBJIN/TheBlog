@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User, timezone
 from cloudinary.models import CloudinaryField
-from djrichtextfield.models import RichTextField
+# from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 
 # added tupple status to show wheather our post is draft or published
 STATUS = (
@@ -47,7 +48,8 @@ class Comment(models.Model):
     email = models.EmailField()
     date_of_comment = models.DateTimeField(auto_created=True)
     image = CloudinaryField('image', default='placeholder')
-    content = models.TextField()
+    content = RichTextField(max_length=7000, blank=True, null=True)
+    # content = models.TextField()
     no_of_comments = models.ManyToManyField(User, related_name="blog_comment")
     approved = models.BooleanField(default='false')
 
