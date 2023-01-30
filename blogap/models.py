@@ -1,9 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, timezone
 from cloudinary.models import CloudinaryField
-from 
-
-
+from djrichtextfield.models import RichTextField
 
 # added tupple status to show wheather our post is draft or published
 STATUS = (
@@ -14,6 +12,7 @@ STATUS = (
 # models below
 # Create a post model
 
+
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -22,7 +21,7 @@ class Post(models.Model):
     date_of_post = models.DateTimeField(auto_created=True)
     update_post = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
-    content = models.TextField()
+    content = RichTextField(max_length=7000, blank=True, null=True)
     no_of_likes = models.ManyToManyField(User, related_name="blogap_no_of_likes")
     excerpt = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
@@ -40,6 +39,8 @@ class Post(models.Model):
         return self.no_of_likes.count()
 
 # added Comment on a post model
+
+
 class Comment(models.Model):
     contributor_comment = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='comment')
@@ -65,5 +66,3 @@ class Meta:
 
     def __str__(self):
         return f"comment {self.body} by {self.contributor_comment}"
-
-

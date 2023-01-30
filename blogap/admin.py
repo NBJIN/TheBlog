@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Post
+from djrichtextfield.models import RichTextField
 
-# Register your models here.
 
-admin.site.register(Post)
+@admin.register(Post)
+class PostAdmin(RichTextField):
+
+    RichTextField = ('content')
