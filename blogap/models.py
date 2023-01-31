@@ -30,7 +30,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
 
-    # def save(self):
+   # def save(self):
     #     if not self.slug:
     #         self.slug = slugify(self.name)
     #         super(Post, self).save(*args, **kwa
@@ -62,7 +62,7 @@ class Comment(models.Model):
     content = RichTextField(max_length=7000, blank=True, null=True)
     # content = models.TextField()
     no_of_comments = models.ManyToManyField(User, related_name="blog_comment")
-    approved = models.BooleanField('Approved', default='false')
+    approved = models.BooleanField(default='false')
 
 
 # added show descending order of comments

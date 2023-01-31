@@ -20,3 +20,8 @@ class CommentAdmin(admin.ModelAdmin):
         # )
     # search_fields = ('name')
     RichTextField = ('content')
+    action = ['approve_comments']
+    
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+
