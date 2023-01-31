@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, timezone
 from cloudinary.models import CloudinaryField
 # from djrichtextfield.models import RichTextField
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 # added tupple status to show wheather our post is draft or published
 STATUS = (
@@ -23,9 +24,19 @@ class Post(models.Model):
     update_post = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=7000, blank=True, null=True)
-    no_of_likes = models.ManyToManyField(User, related_name="blogap_no_of_likes")
+    no_of_likes = models.ManyToManyField(
+        User, related_name="blogap_no_of_likes")
     excerpt = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
+
+
+    # def save(self):
+    #     if not self.slug:
+    #         self.slug = slugify(self.name)
+    #         super(Post, self).save(*args, **kwa
+    # def save(self, *args, **kwargs):
+        # self.slug = slugify(self.Post_name)
+        # super(Post, self).save(*args, **kwargs)
 
 # added show descending order of posts
     class Meta:
