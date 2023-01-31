@@ -8,15 +8,15 @@ from djrichtextfield.models import RichTextField
 class PostAdmin(admin.ModelAdmin):
     RichTextField = ('content')
     prepopulated_fields = {'slug': ('name',)}
-
-
-
+    # search_fields = ('name')
+    # list_display = ('name')
 
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = (
-        'contributor_comment', 'date_of_comment', 'image', 'content', 'approved'
-        )
+    # list_display = (
+        # 'contributor_comment', 'date_of_comment', 'image', 'content', 'approved'
+        # )
+    # search_fields = ('name')
     RichTextField = ('content')

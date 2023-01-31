@@ -62,7 +62,7 @@ class Comment(models.Model):
     content = RichTextField(max_length=7000, blank=True, null=True)
     # content = models.TextField()
     no_of_comments = models.ManyToManyField(User, related_name="blog_comment")
-    approved = models.BooleanField(default='false')
+    approved = models.BooleanField('Approved', default='false')
 
 
 # added show descending order of comments
