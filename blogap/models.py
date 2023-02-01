@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 
+
 # added tupple status to show wheather our post is draft or published
 STATUS = (
     (0, "Draft"),
@@ -28,7 +29,6 @@ class Post(models.Model):
         User, related_name="blogap_no_of_likes")
     excerpt = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
-
 
    # def save(self):
     #     if not self.slug:
@@ -79,3 +79,17 @@ class Meta:
 
     def __str__(self):
         return f"comment {self.body} by {self.contributor_comment}"
+
+# class AddPost(models.Model):
+#     name = models.CharField(max_length=200, unique=True)
+#     slug = models.SlugField(max_length=200, unique=True)
+#     post_contributor = models.ForeignKey(
+#         User, on_delete=models.CASCADE, related_name='blogap_posts')
+#     date_of_post = models.DateTimeField(auto_created=True)
+#     update_post = models.DateTimeField(auto_now_add=True)
+#     image = CloudinaryField('image', default='placeholder')
+#     content = RichTextField(max_length=7000, blank=True, null=True)
+#     no_of_likes = models.ManyToManyField(
+#         User, related_name="blogap_no_of_likes")
+#     excerpt = models.TextField()
+#     status = models.IntegerField(choices=STATUS, default=0)
