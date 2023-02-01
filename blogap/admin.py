@@ -15,13 +15,13 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    # list_display = (
-        # 'contributor_comment', 'date_of_comment', 'image', 'content', 'approved'
-        # )
+    list_display = (
+        'contributor_comment', 'date_of_comment', 'image', 'content', 'approved'
+        )
     # search_fields = ('name')
     RichTextField = ('content')
-    action = ['approve_comments']
+    # action = ['approve_comments']
     
-    def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
+    # def approve_comments(self, request, queryset):
+    #     queryset.update(approved=True)
 
