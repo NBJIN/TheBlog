@@ -61,7 +61,8 @@ class Comment(models.Model):
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=7000, blank=True, null=True)
     # content = models.TextField()
-    no_of_likes = models.ManyToManyField(Post, related_name="blogap_no_of_likes")
+    no_of_likes = models.ManyToManyField(
+        Post, related_name="blogap_no_of_likes")
     approved = models.BooleanField('Approved', default='False')
 
 

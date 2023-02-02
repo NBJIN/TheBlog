@@ -7,6 +7,7 @@
 
 
 hello there Posts
+<div>
 <br>
 
 {% for post in object_list %}
@@ -22,6 +23,7 @@ hello there Posts
 {{ post.content | safe }}
 
 <br>
+</div>
 
 {% endfor%}
 {% endblock %}

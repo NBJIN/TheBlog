@@ -32,6 +32,7 @@ class PostDetail(generic.DetailView):
 # #         form.instance.user = self.request.user
 # #         return super(AddPost, self).form_valid(form)
 
+
 class Comment(FormView):
-    model = Comment 
+    model = Comment
     template_name = 'comment.html'

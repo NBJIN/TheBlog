@@ -20,11 +20,11 @@ Detailed Post
 {{ post.content | safe }}
 <div>
 
-    {% for comment in comments.all % }
+    <!-- {% for comment in comments.all % } -->
 
-<button type="button" class="btn btn-warning btn-sm">
-    <a href="{% url 'comment' %}>
-        Comment
+    <button type="button" class="btn btn-warning btn-sm">
+        <a href="{% url 'comment' %}></a>
+       
     </button>
 
 </div>
