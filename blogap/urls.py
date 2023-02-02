@@ -2,7 +2,7 @@
 from . import views
 # from django.contrib import admin
 from django.urls import path
-from .views import PostView, PostDetail
+from .views import PostView, PostDetail, Comment
 
 
 urlpatterns = [
@@ -17,4 +17,5 @@ urlpatterns = [
     # path('<slug:slug>/', views.PostDetailView(), name='detailpost'),
     # 'article/<int:pk>'
     path('detailed_post/<int:pk>', PostDetail.as_view(), name='detailed_post'),
+    path('comment/ <int:pk>', Comment.as_view(), name='comment')
 ]

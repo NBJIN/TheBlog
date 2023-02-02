@@ -18,9 +18,16 @@ Detailed Post
 {{ post.date_of_post | safe }}
 
 {{ post.content | safe }}
+<div>
 
+    {% for comment in comments.all % }
 
+<button type="button" class="btn btn-warning btn-sm">
+    <a href="{% url 'comment' %}>
+        Comment
+    </button>
 
+</div>
 
 {% endblock %}
 

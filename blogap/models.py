@@ -55,13 +55,13 @@ class Post(models.Model):
 
 class Comment(models.Model):
     contributor_comment = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='comment')
+        Post, on_delete=models.CASCADE, related_name='comment')
     email = models.EmailField()
-    date_of_comment = models.DateTimeField(auto_created=True)
+    date_of_comment = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=7000, blank=True, null=True)
     # content = models.TextField()
-    no_of_comments = models.ManyToManyField(User, related_name="blog_comment")
+    no_of_likes = models.ManyToManyField(Post, related_name="blogap_no_of_likes")
     approved = models.BooleanField('Approved', default='False')
 
 

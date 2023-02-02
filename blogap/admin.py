@@ -15,11 +15,22 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = (
-        'contributor_comment', 'date_of_comment', 'image', 'content', 'approved'
+        'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
         )
+    list_filter = ('approved', 'date_of_comment', 'contributor_comment')
+    search_fields = ('contributor_comment', 'email', 'content')
 #     # search_fields = ('name')
 #     RichTextField = ('content')
 #     # action = ['approve_comments']
 
 #     # def approve_comments(self, request, queryset):
 #     #     queryset.update(approved=True)
+#  contributor_comment = models.ForeignKey(
+#         Post, on_delete=models.CASCADE, related_name='comment')
+#     email = models.EmailField()
+#     date_of_comment = models.DateTimeField(auto_created=True)
+#     image = CloudinaryField('image', default='placeholder')
+#     content = RichTextField(max_length=7000, blank=True, null=True)
+#     # content = models.TextField()
+#     no_of_comments = models.ManyToManyField(User, related_name="blog_comment")
+#     approved = models.BooleanField('Approved', default='False')
