@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView, DetailView, FormView
-from .models import Post, Comment
+from .models import Post
 from django.http import HttpResponse
 
 # from django.contrib.auth.mixins import (
@@ -33,6 +33,10 @@ class PostDetail(generic.DetailView):
 # #         return super(AddPost, self).form_valid(form)
 
 
-class Comment(FormView):
-    model = Comment
-    template_name = 'comment.html'
+
+
+
+
+# class AddComment(FormView):
+#     model = AddComment
+#     template_name = 'addcomment.html'

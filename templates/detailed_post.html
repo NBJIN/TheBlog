@@ -1,35 +1,28 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
 
 {% block content %}
 
 
-Detailed Post 
+<h1>Detailed Posts.. {{ post.name | safe }}</h1>
+
+<h3>{{ post.post_contributor| safe  }}</h3>
 
 
+<h3>{{ post.date_of_post | safe }}</h3>
+<hr>
 
-
-
-
-<a href="{% url 'index'  %}">{{ post.name | safe }}</a>
-
-
-{{ post.post_contributor| safe  }}
-
-{{ post.date_of_post | safe }}
-
-{{ post.content | safe }}
+<h3>{{ post.content | safe }}</h3>
 <div>
+    <!-- <br>
 
-    <!-- {% for comment in comments.all % } -->
-
-    <button type="button" class="btn btn-warning btn-sm">
-        <a href="{% url 'comment' %}></a>
-       
+    <a href="{% url 'addcomment' post.pk %}">{{ post.name | safe }}</a>
+    <br> -->
+<!--     
     </button>
 
 </div>
 
-{% endblock %}
+{% endblock %} --> -->
 
 
 

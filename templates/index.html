@@ -6,26 +6,31 @@
 
 
 
-hello there Posts
+<h1>Post Page</h1>
 <div>
 <br>
 
 {% for post in object_list %}
 <br>
 
-<a href="{% url 'detailed_post' post.pk %}">{{ post.name | safe }}</a>
-<br>
+<a href="{% url 'detailed-post' post.pk %}">    
+{{ post.name | safe }}
+</a>
 
+<br>
 {{ post.post_contributor| safe  }}
 <br>
 {{ post.date_of_post | safe }}
 <br>
 {{ post.content | safe }}
-
 <br>
+
+{% endfor %}
+
 </div>
 
-{% endfor%}
+
+
 {% endblock %}
 
 
