@@ -44,7 +44,7 @@ class Post(models.Model):
 
 # On admin page allow user to see name and author
     def __str__(self):
-        return self.name + ' | ' + slef.post_contributor
+        return self.name + ' | ' + (str(self.post_contributor))
 
 # added show total no of likes on a post
     def no_of_likes(self):

@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
 
 
-hello
+
+hello there Posts
+<br>
+
+{% for post in object_list %}
+<br>
+
+<a href="{% url 'detailed_post' post.pk %}">{{ post.name | safe }}</a>
+<br>
+
+{{ post.post_contributor| safe  }}
+<br>
+{{ post.date_of_post | safe }}
+<br>
+{{ post.content | safe }}
+
+<br>
+
+{% endfor%}
 {% endblock %}
+
+

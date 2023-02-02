@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+Detailed Post 
+
+
+
+
+
+
+<a href="{% url 'index'  %}">{{ post.name | safe }}</a>
+
+
+{{ post.post_contributor| safe  }}
+
+{{ post.date_of_post | safe }}
+
+{{ post.content | safe }}
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

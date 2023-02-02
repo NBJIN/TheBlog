@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic import ListView, DetailView
 from .models import Post
 from django.http import HttpResponse
+
 # from django.contrib.auth.mixins import (
     # UserPassesTestMixin, LoginRequiredMixin
 # )
@@ -10,12 +11,16 @@ from django.http import HttpResponse
 # # # Create your views here. / class based views
 
 
-class PostList(generic.ListView):
+class PostView(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('date_of_post')
     template_name = 'index.html'
     paginate_by = 6
 
+
+class PostDetail(generic.DetailView):
+    model = Post
+    template_name = 'detailed_post.html'
 
 # # class AddPost(LoginRequiredMixin, AddPost):
 # #     template_name = "addpost.html"

@@ -27,5 +27,6 @@ urlpatterns = [
     # path('', views.index, name=index)
     path('', include('blogap.urls'), name='blogap'),
     
+    
 
 ]
