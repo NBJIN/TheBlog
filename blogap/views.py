@@ -4,9 +4,10 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, FormView
 from .models import Post, Comment
 from django.http import HttpResponse
+# from .forms import CommentForm
 
 # from django.contrib.auth.mixins import (
-    # UserPassesTestMixin, LoginRequiredMixin
+# UserPassesTestMixin, LoginRequiredMixin
 # )
 
 # # # Create your views here. / class based views
@@ -21,20 +22,14 @@ class PostView(generic.ListView):
 
 class PostDetail(generic.DetailView):
     model = Post
-    
+
     template_name = 'detailedpost.html'
 
 
-class Comment(generic.FormView):
+class Comment(DetailView):
     model = Comment
     template_name = 'comment.html'
-
-
-
-        
-
-
-
+    fields = '__all__'
 
 
 # # class AddPost(LoginRequiredMixin, AddPost):
@@ -46,9 +41,3 @@ class Comment(generic.FormView):
     # #     def form_valid(self, form):
 # #         form.instance.user = self.request.user
 # #         return super(AddPost, self).form_valid(form)
-
-
-
-
-
-

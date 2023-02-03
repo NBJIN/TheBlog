@@ -30,13 +30,13 @@ class Post(models.Model):
     excerpt = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
 
-   # def save(self):
-    #     if not self.slug:
-    #         self.slug = slugify(self.name)
-    #         super(Post, self).save(*args, **kwa
-    # def save(self, *args, **kwargs):
-        # self.slug = slugify(self.Post_name)
-        # super(Post, self).save(*args, **kwargs)
+# def save(self):
+#     if not self.slug:
+#         self.slug = slugify(self.name)
+#         super(Post, self).save(*args, **kwa
+# def save(self, *args, **kwargs):
+# self.slug = slugify(self.Post_name)
+# super(Post, self).save(*args, **kwargs)
 
 # added show descending order of posts
     class Meta:
@@ -54,15 +54,14 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    contributor_comment = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comment')
+    cname = models.CharField(max_length=200)
+    contributor_comment = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     email = models.EmailField()
     date_of_comment = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=7000, blank=True, null=True)
     # content = models.TextField()
-    no_of_likes = models.ManyToManyField(
-        Post, related_name="blogap_no_of_likes")
+    no_of_likes = models.ManyToManyField(Post, related_name="blogap_no_of_likes")
     approved = models.BooleanField('Approved', default='False')
 
 
