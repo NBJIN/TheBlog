@@ -1,13 +1,13 @@
 from . import views
 # from django.contrib import admin
 from django.urls import path, include
-from .views import PostView, PostDetail
-# PostDetail, AddComment
+from .views import PostView, PostDetail, Comment
 
 
 urlpatterns = [
         path('', views.PostView.as_view(), name='index'),
-        path('detailed/<int:pk>', views.PostDetail.as_view(), name='detailed-post'),
+        path('detailedpost/<int:pk>', views.PostDetail.as_view(), name='detailedpost'),
+        path('comment/<int:pk>', views.Comment.as_view(), name='comment'),
 
 #     path('', views.index, name="index.html"),
 #     # # path('djrichtextfield/', include('djrichtextfield.urls')),

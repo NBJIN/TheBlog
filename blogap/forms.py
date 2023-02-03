@@ -1,8 +1,8 @@
 # from django import forms
-# from .models import AddComment
+# from .models import Comment
 
 
-# class AddComment(form.ModelForm):
+# class Comment(form.ModelForm):
 #     class Meta:
 #         model = Commment
 #         fields = (

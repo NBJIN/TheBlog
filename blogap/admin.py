@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 #  AddComment
 from djrichtextfield.models import RichTextField
 # from django.utils.text import slugify
@@ -13,11 +13,11 @@ class PostAdmin(admin.ModelAdmin):
 #     # list_display = ('name')
 
 
-# @admin.register(AddComment)
-# class AddCommentAdmin(admin.ModelAdmin):
-#     list_display = (
-#         'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
-#         )
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = (
+        'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
+        )
 #     list_filter = ('approved', 'date_of_comment', 'contributor_comment')
 #     search_fields = ('contributor_comment', 'email', 'content')
 #     # search_fields = ('name')

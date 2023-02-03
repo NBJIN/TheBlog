@@ -53,17 +53,17 @@ class Post(models.Model):
 # added Comment on a post model
 
 
-# class AddComment(models.Model):
-#     contributor_comment = models.ForeignKey(
-#         Post, on_delete=models.CASCADE, related_name='addcomment')
-#     email = models.EmailField()
-#     date_of_comment = models.DateTimeField(auto_now_add=True)
-#     image = CloudinaryField('image', default='placeholder')
-#     content = RichTextField(max_length=7000, blank=True, null=True)
-#     # content = models.TextField()
-#     no_of_likes = models.ManyToManyField(
-#         Post, related_name="blogap_no_of_likes")
-#     approved = models.BooleanField('Approved', default='False')
+class Comment(models.Model):
+    contributor_comment = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comment')
+    email = models.EmailField()
+    date_of_comment = models.DateTimeField(auto_now_add=True)
+    image = CloudinaryField('image', default='placeholder')
+    content = RichTextField(max_length=7000, blank=True, null=True)
+    # content = models.TextField()
+    no_of_likes = models.ManyToManyField(
+        Post, related_name="blogap_no_of_likes")
+    approved = models.BooleanField('Approved', default='False')
 
 
 # added show descending order of comments

@@ -13,10 +13,14 @@
 
 <h3>{{ post.content | safe }}</h3>
 <div>
-    <!-- <br>
 
-    <a href="{% url 'addcomment' post.pk %}">{{ post.name | safe }}</a>
-    <br> -->
+    
+    <br>
+
+    <a href="{% url 'comment' post.pk %}">{{ post.name | safe }}</a>
+    <a href="{% url 'index' %}">Home</a>
+    
+    <br>
 <!--     
     </button>
 

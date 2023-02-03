@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView, DetailView, FormView
-from .models import Post
+from .models import Post, Comment
 from django.http import HttpResponse
 
 # from django.contrib.auth.mixins import (
@@ -20,7 +20,13 @@ class PostView(generic.ListView):
 
 class PostDetail(generic.DetailView):
     model = Post
-    template_name = 'detailed_post.html'
+    template_name = 'detailedpost.html'
+
+
+class Comment(generic.ListView):
+    model = Comment
+    template_name = 'comment.html'
+
 
 # # class AddPost(LoginRequiredMixin, AddPost):
 # #     template_name = "addpost.html"
@@ -37,6 +43,3 @@ class PostDetail(generic.DetailView):
 
 
 
-# class AddComment(FormView):
-#     model = AddComment
-#     template_name = 'addcomment.html'
