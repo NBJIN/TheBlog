@@ -22,14 +22,13 @@ class PostView(generic.ListView):
 
 class PostDetail(generic.DetailView):
     model = Post
-
     template_name = 'detailedpost.html'
 
 
 class Comment(DetailView):
     model = Comment
     template_name = 'comment.html'
-    fields = '__all__'
+    fields = 'contributor_comment'
 
 
 # # class AddPost(LoginRequiredMixin, AddPost):
