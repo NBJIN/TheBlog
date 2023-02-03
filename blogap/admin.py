@@ -18,14 +18,16 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = (
         'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
         )
+
+           # def approve_comments(self, request, queryset):
+    #     queryset.update(approved=True)
 #     list_filter = ('approved', 'date_of_comment', 'contributor_comment')
 #     search_fields = ('contributor_comment', 'email', 'content')
 #     # search_fields = ('name')
 #     RichTextField = ('content')
 #     # action = ['approve_comments']
 
-#     # def approve_comments(self, request, queryset):
-#     #     queryset.update(approved=True)
+#  
 #  contributor_comment = models.ForeignKey(
 #         Post, on_delete=models.CASCADE, related_name='comment')
 #     email = models.EmailField()

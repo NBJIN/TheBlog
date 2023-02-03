@@ -17,8 +17,8 @@
     
     <br>
 
-    <a href="{% url 'comment' post.pk %}">{{ post.name | safe }}</a>
-    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'comment' post.pk %}" class="btn btn-warning">Comment</a>
+    <a href="{% url 'index' %}" class="btn btn-warning">Home</a>
     
     <br>
 <!--     
@@ -26,7 +26,7 @@
 
 </div>
 
-{% endblock %} --> -->
+{% endblock %}
 
 
 

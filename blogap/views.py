@@ -23,9 +23,12 @@ class PostDetail(generic.DetailView):
     template_name = 'detailedpost.html'
 
 
-class Comment(generic.ListView):
+class Comment(generic.DetailView):
     model = Comment
     template_name = 'comment.html'
+
+
+
 
 
 # # class AddPost(LoginRequiredMixin, AddPost):
@@ -34,7 +37,7 @@ class Comment(generic.ListView):
 # #     # form_class = AddPostForm
 # #     success_url = '/'
 
-# #     def form_valid(self, form):
+    # #     def form_valid(self, form):
 # #         form.instance.user = self.request.user
 # #         return super(AddPost, self).form_valid(form)
 
