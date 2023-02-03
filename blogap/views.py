@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, FormView
 from .models import Post, Comment
 from django.http import HttpResponse
@@ -20,12 +21,17 @@ class PostView(generic.ListView):
 
 class PostDetail(generic.DetailView):
     model = Post
+    
     template_name = 'detailedpost.html'
 
 
 class Comment(generic.DetailView):
     model = Comment
     template_name = 'comment.html'
+
+
+
+        
 
 
 
