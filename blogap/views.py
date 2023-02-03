@@ -25,7 +25,7 @@ class PostDetail(generic.DetailView):
     template_name = 'detailedpost.html'
 
 
-class Comment(generic.DetailView):
+class Comment(generic.FormView):
     model = Comment
     template_name = 'comment.html'
 
