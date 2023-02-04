@@ -1,14 +1,16 @@
 from . import views
 # from django.contrib import admin
 from django.urls import path, include
-from .views import PostView, PostDetail, Comment
+from . import views
+from .views import PostView, PostDetail, Comment, AddPost
 from django.http import HttpResponse
 
 
 urlpatterns = [
         path('', views.PostView.as_view(), name='index'),
         path('detailedpost/<int:pk>', views.PostDetail.as_view(), name='detailedpost'),
-        path('<slug:slug>/comment', views.Comment.as_view(), name='comment'),
+        path('atricle/<int:pk>/comment', views.Comment.as_view(), name='comment'),
+        path('addpost/', views.AddPost.as_view(), name='addpost'),
 
 ]
 #     path('', views.index, name="index.html"),

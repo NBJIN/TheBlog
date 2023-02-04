@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, FormView
-from .models import Post, Comment
+from django.views.generic import ListView, DetailView, FormView, CreateView
+from .models import Post, Comment, AddPost
 from django.http import HttpResponse
 # from .forms import CommentForm
 
@@ -25,18 +25,14 @@ class PostDetail(generic.DetailView):
     template_name = 'detailedpost.html'
 
 
-class Comment(DetailView):
+class Comment(CreateView):
     model = Comment
     template_name = 'comment.html'
     fields = 'contributor_comment'
 
 
-# # class AddPost(LoginRequiredMixin, AddPost):
-# #     template_name = "addpost.html"
-# #     model = AddPost
-# #     # form_class = AddPostForm
-# #     success_url = '/'
-
-    # #     def form_valid(self, form):
-# #         form.instance.user = self.request.user
-# #         return super(AddPost, self).form_valid(form)
+# LoginRequiredMixin,
+class AddPost(CreateView):
+    template_name = "addpost.html"
+    model = AddPost
+    fields = '__all__'

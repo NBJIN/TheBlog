@@ -4,10 +4,53 @@
 {% load crispy_forms_tags %}
 <!-- {% for comment in object_list % } -->
 
-    
+<br>
 
-<button type="button" class="btn btn-warning btn-sm">
-    <a href="{% url 'comment' post.pk %}>Comment</a>
+<h2>Comments Page</h2>
+
+{% if not post.comments.all %}
+No Comments Added Yet...<a href="{% url 'comment' post.pk %}">Add Comment</a>
+{% else %}
+
+{% for comment in post.comments.all  %}
+
+<br>
+{{ contributor_comment }}
+{{ date_of_comment }}
+{{ content }}
+
+
+{% endfor %}
+{% endif %}
+
+<a href="{% url 'comment' post.pk %}">Add Comment </a>
+</br>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+<h2>Add comment</h2>
+
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Add Comment</button>
+    </form>
+</div>
+
+{% endblock %} -->
+
+
+
+<!-- <button type="button" class="btn btn-warning btn-sm"> -->
+    <a href="{% url 'comment' post.pk %}">Comment</a>
 
    
  

@@ -16,7 +16,7 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = (
-        'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
+        'title', 'contributor_comment', 'email', 'date_of_comment', 'image', 'content', 'approved'
         )
 
 # def approve_comments(self, request, queryset):
