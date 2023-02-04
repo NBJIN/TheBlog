@@ -28,7 +28,7 @@ class PostDetail(generic.DetailView):
 class Comment(CreateView):
     model = Comment
     template_name = 'comment.html'
-    fields = 'contributor_comment'
+    fields = '__all__'
 
 
 # LoginRequiredMixin,
