@@ -10,14 +10,22 @@ from djrichtextfield.models import RichTextField
 class PostAdmin(admin.ModelAdmin):
     RichTextField = ('content')
     prepopulated_fields = {'slug': ('name',)}
-#     # search_fields = ('name')
-#     # list_display = ('name')
+    list_filter = ('name', 'date_of_post')
+    list_display = ('name', 'slug', 'post_contributor', 'date_of_post') # not sure about this line
+    search_fields = ('name', 'content')
+
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    def __str__(self):
-        return f"{self.title} {self.contributor_comment}"
-    # list_display = ('title', 'contributor_comment')
-   
-    # pass
+    list_display = ('contributor_comment', 'date_of_comment', 'content', 'approved')
+    list_filter = ('contributor_comment', 'date_of_comment')
+    search_fields = ('contributor_comment', 'date_of_comment', 'content')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
+
+    # def __str__(self):
+    #     return f"{self.title} {self.contributor_comment}"
+ 

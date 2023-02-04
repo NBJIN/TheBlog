@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, FormView, CreateView
 from .models import Post, Comment, AddPost
-from django.http import HttpResponse
 # from .forms import CommentForm
 
 # from django.contrib.auth.mixins import (
