@@ -9,7 +9,7 @@ from django.http import HttpResponse
 urlpatterns = [
         path('', views.PostView.as_view(), name='index'),
         path('detailedpost/<int:pk>', views.PostDetail.as_view(), name='detailedpost'),
-        path('atricle/<int:pk>/comment', views.Comment.as_view(), name='comment'),
+        path('blogap/comment/<int:id>', views.Comment.as_view(), name='comment'),
         path('addpost/', views.AddPost.as_view(), name='addpost'),
 
 ]

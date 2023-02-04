@@ -31,7 +31,7 @@ class Comment(CreateView):
     fields = '__all__'
 
 
-# LoginRequiredMixin,
+# # LoginRequiredMixin,
 class AddPost(CreateView):
     template_name = "addpost.html"
     model = AddPost
